@@ -19,7 +19,7 @@ namespace UniqueAttributeDataFix
             Console.WriteLine("***");
         }
 
-        public static void PrintFunctionCallDetails(string name, IServcorpSagaInfo sagaInfo)
+        public static void PrintFunctionCallDetails(string name, ISagaInfo sagaInfo)
         {
             Console.WriteLine("***");
             Console.WriteLine("BEGIN: Start running {0} at {1}", name, DateTime.Now);

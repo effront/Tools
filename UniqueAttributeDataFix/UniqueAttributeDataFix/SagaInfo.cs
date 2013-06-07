@@ -1,6 +1,6 @@
 ﻿namespace UniqueAttributeDataFix
 {
-    public interface IServcorpSagaInfo
+    public interface ISagaInfo
     {
         string RavenUrl { get; set; }
         string DatabaseName { get; set; }
@@ -10,7 +10,7 @@
         string SagaUniqueIdentityKeyPrefix { get; }
     }
 
-    public class ServcorpSagaInfo : IServcorpSagaInfo
+    public class SagaInfo : ISagaInfo
     {
         public string RavenUrl { get; set; }
         public string DatabaseName { get; set; }

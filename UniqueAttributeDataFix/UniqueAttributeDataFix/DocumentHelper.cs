@@ -10,7 +10,7 @@ namespace UniqueAttributeDataFix
 {
     public class DocumentHelper
     {
-        public static List<string> GetExistingSagaUniqueIdentityUniqueValues(DocumentStore documentStore, IServcorpSagaInfo sagaInfo)
+        public static List<string> GetExistingSagaUniqueIdentityUniqueValues(DocumentStore documentStore, ISagaInfo sagaInfo)
         {
             const int pageSize = 100;
             var keys = new List<string>();
@@ -37,7 +37,7 @@ namespace UniqueAttributeDataFix
             return doc.Metadata.TryGetValue("NServiceBus-UniqueValue", out token);
         }
 
-        public static string GenerateUniqueIdentityRecordId(string uniqueValue, IServcorpSagaInfo sagaInfo)
+        public static string GenerateUniqueIdentityRecordId(string uniqueValue, ISagaInfo sagaInfo)
         {
             // use MD5 hash to get a 16-byte hash of the string
             using (var provider = new MD5CryptoServiceProvider())

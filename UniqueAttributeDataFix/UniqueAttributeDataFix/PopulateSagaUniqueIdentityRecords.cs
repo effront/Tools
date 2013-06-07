@@ -7,10 +7,10 @@ namespace UniqueAttributeDataFix
 {
     public class PopulateSagaUniqueIdentityRecords
     {
-        public void Run(IServcorpSagaInfo sagaInfo)
+        public void Run(ISagaInfo sagaInfo)
         {
             PrintHelper.PrintFunctionCallDetails("PopulateSagaUniqueIdentityRecords", sagaInfo);
-            var documentStore = new DocumentStore()
+            var documentStore = new DocumentStore
             {
                 Url = sagaInfo.RavenUrl,
                 DefaultDatabase = sagaInfo.DatabaseName
@@ -49,7 +49,7 @@ namespace UniqueAttributeDataFix
                         documentMetadata.Add("Raven-Clr-Type",
                                              "NServiceBus.SagaPersisters.Raven.SagaUniqueIdentity, NServiceBus.Core");
 
-                        ICommandData command = new PutCommandData()
+                        ICommandData command = new PutCommandData
                         {
                             Key = DocumentHelper.GenerateUniqueIdentityRecordId(uniqueValue, sagaInfo),
                             Document = documentBody,

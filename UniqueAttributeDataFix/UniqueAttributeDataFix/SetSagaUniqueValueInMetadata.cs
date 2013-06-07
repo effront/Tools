@@ -8,10 +8,10 @@ namespace UniqueAttributeDataFix
 {
     public class SetSagaUniqueValueInMetadata
     {
-        public void Run(IServcorpSagaInfo sagaInfo)
+        public void Run(ISagaInfo sagaInfo)
         {
             PrintHelper.PrintFunctionCallDetails("SetSagaUniqueValueInMetadata", sagaInfo);
-            var documentStore = new DocumentStore()
+            var documentStore = new DocumentStore
             {
                 Url = sagaInfo.RavenUrl,
                 DefaultDatabase = sagaInfo.DatabaseName
@@ -46,7 +46,7 @@ namespace UniqueAttributeDataFix
                                             }
                                     }
                             };
-                        ICommandData command = new PatchCommandData()
+                        ICommandData command = new PatchCommandData
                         {
                             Key = document.Key,
                             Patches = patchRequests
